@@ -1,4 +1,3 @@
-// ---------- Utilidades de fecha ----------
 function pad(n) { return n.toString().padStart(2, "0"); }
 
 function dateKey(d) { return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`; }
@@ -26,7 +25,6 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
-// ---------- Iconos (SVG en línea, sin dependencias externas) ----------
 const ICONS = {
   chevronLeft: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>`,
   chevronRight: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>`,
@@ -35,14 +33,15 @@ const ICONS = {
   check: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`,
   bell: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>`,
   bellOff: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.73 21a2 2 0 01-3.46 0"/><path d="M18.63 13A17.89 17.89 0 0118 8"/><path d="M6.26 6.26A5.86 5.86 0 006 8c0 7-3 9-3 9h14"/><path d="M18 8a6 6 0 00-9.33-5"/><line x1="1" y1="1" x2="23" y2="23"></line></svg>`,
+  gear: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06A1.65 1.65 0 004.6 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.6a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"></path></svg>`,
   star: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9 12 2"></polygon></svg>`,
   flame: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c1 4-3 5-3 9a3 3 0 006 0c0-1-1-2-1-3 2 1 3 3 3 5a5 5 0 01-10 0c0-5 3-6 5-11z"></path></svg>`,
   flag: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22V4"></path><path d="M4 4h13l-2.5 4L17 12H4"></path></svg>`,
   sun: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"></path></svg>`,
-  trophy: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 01-10 0V4z"></path><path d="M17 5h3a3 3 0 01-3 4M7 5H4a3 3 0 003 4"></path></svg>`
+  trophy: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 01-10 0V4z"></path><path d="M17 5h3a3 3 0 01-3 4M7 5H4a3 3 0 003 4"></path></svg>`,
+  download: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`
 };
 
-// ---------- Niveles e insignias ----------
 function levelFromXp(xp) { return Math.floor(xp / 100) + 1; }
 
 const BADGES = [
@@ -60,16 +59,24 @@ const BADGES = [
   { id: "nivel-10", name: "Nivel 10", desc: "Llega a nivel 10", icon: "trophy", check: (s) => levelFromXp(s.xp) >= 10 }
 ];
 
-// ---------- Estado ----------
 const STORAGE_TASKS_KEY = "agenda_tasks";
+const STORAGE_API_KEY = "agenda_api_key";
 const STORAGE_PROGRESS_KEY = "agenda_progress";
+const MODEL = "claude-sonnet-5";
 
 const state = {
   currentDate: new Date(),
   tasksByDate: {},
+  aiLoading: false,
   aiError: "",
+  aiNote: "",
+  aiDraft: "",
   showAddForm: false,
+  showSettings: false,
+  online: typeof navigator === "undefined" ? true : navigator.onLine,
   notifPermission: (typeof Notification !== "undefined") ? Notification.permission : "unsupported",
+  apiKey: "",
+  installPrompt: null,
   progress: {
     xp: 0,
     completedCount: 0,
@@ -92,14 +99,13 @@ function saveProgress() {
   localStorage.setItem(STORAGE_PROGRESS_KEY, JSON.stringify(state.progress));
 }
 
-// ---------- Notificaciones (mientras la pestaña esté abierta) ----------
 function scheduleNotifications() {
   scheduledTimeouts.forEach((id) => clearTimeout(id));
   scheduledTimeouts = [];
   if (state.notifPermission !== "granted") return;
 
-  const todayKey = dateKey(new Date());
-  const list = state.tasksByDate[todayKey] || [];
+  const today = dateKey(new Date());
+  const list = state.tasksByDate[today] || [];
   const now = new Date();
 
   list.forEach((task) => {
@@ -130,7 +136,6 @@ async function requestNotifications() {
   render();
 }
 
-// ---------- Progreso: XP, insignias y celebraciones ----------
 function awardTaskCompletion(task, key, list) {
   if (!task.xpAwarded) {
     state.progress.xp += task.priority ? 15 : 10;
@@ -160,9 +165,7 @@ function checkProgressEvents() {
       events.push(`Nueva insignia: ${b.name}`);
     }
   });
-  if (events.length) {
-    state.justUnlocked = (state.justUnlocked || []).concat(events);
-  }
+  if (events.length) state.justUnlocked = (state.justUnlocked || []).concat(events);
 }
 
 function dismissCelebration() {
@@ -170,7 +173,6 @@ function dismissCelebration() {
   render();
 }
 
-// ---------- Acciones sobre tareas ----------
 function goPrevDay() { state.currentDate = addDays(state.currentDate, -1); render(); }
 function goNextDay() { state.currentDate = addDays(state.currentDate, 1); render(); }
 
@@ -181,12 +183,10 @@ function toggleTask(id) {
   if (!task) return;
   const wasDone = task.done;
   task.done = !task.done;
-
   if (!wasDone && task.done) {
     awardTaskCompletion(task, key, list);
     checkProgressEvents();
   }
-
   state.tasksByDate[key] = [...list];
   saveTasks();
   saveProgress();
@@ -222,100 +222,236 @@ function submitAddForm(e) {
   render();
 }
 
-// ---------- Organizador local (sin API, sin internet) ----------
-function parseTimeFromSegment(seg) {
-  let m = seg.match(/\b(\d{1,2}):(\d{2})\s*(am|pm|a\.m\.|p\.m\.)?\b/i);
-  if (m) {
-    let h = Number(m[1]);
-    const min = m[2];
-    const suf = (m[3] || "").toLowerCase().replace(/\./g, "");
-    if (suf === "pm" && h < 12) h += 12;
-    if (suf === "am" && h === 12) h = 0;
-    return { time: `${pad(h)}:${min}`, match: m[0] };
-  }
-  m = seg.match(/a las\s*(\d{1,2})\s*(am|pm|a\.m\.|p\.m\.|de la tarde|de la noche|de la mañana)?/i);
-  if (m) {
-    let h = Number(m[1]);
-    const suf = (m[2] || "").toLowerCase();
-    if (/pm|tarde|noche/.test(suf) && h < 12) h += 12;
-    if (/am/.test(suf) && h === 12) h = 0;
-    return { time: `${pad(h)}:00`, match: m[0] };
-  }
-  m = seg.match(/\b(\d{1,2})\s*(de la tarde|de la noche|de la mañana)\b/i);
-  if (m) {
-    let h = Number(m[1]);
-    const suf = m[2].toLowerCase();
-    if (/tarde|noche/.test(suf) && h < 12) h += 12;
-    return { time: `${pad(h)}:00`, match: m[0] };
-  }
-  if (/tempran[oa]/i.test(seg)) return { time: "07:00", match: null };
-  if (/medio ?d[ií]a/i.test(seg)) return { time: "12:00", match: null };
-  if (/en la mañana|de la mañana/i.test(seg)) return { time: "08:00", match: null };
-  if (/en la tarde|de la tarde/i.test(seg)) return { time: "16:00", match: null };
-  if (/en la noche|de la noche|por la noche/i.test(seg)) return { time: "20:00", match: null };
-  return null;
-}
+function toggleSettings() { state.showSettings = !state.showSettings; render(); }
 
-function organizeText(text) {
-  const segments = text
-    .split(/\n|;|\.\s+|,|\by\b|\btambién\b|\badem[aá]s\b/gi)
-    .map((s) => s.trim())
-    .filter(Boolean);
-
-  let autoHour = Math.max(new Date().getHours() + 1, 8);
-  const results = [];
-
-  segments.forEach((segment) => {
-    const parsed = parseTimeFromSegment(segment);
-    let seg = segment;
-    let time;
-    if (parsed) {
-      time = parsed.time;
-      if (parsed.match) seg = seg.replace(parsed.match, "");
-    } else {
-      time = `${pad(autoHour)}:00`;
-      autoHour = autoHour >= 21 ? 21 : autoHour + 1;
-    }
-    const priority = /examen|entrega|urgente|importante|prueba|proyecto final|presentaci[oó]n/i.test(seg);
-    let title = seg
-      .replace(/^\s*(y|también|además|tengo que|tengo|debo|necesito)\s+/i, "")
-      .replace(/\s{2,}/g, " ")
-      .replace(/^[,.\s-]+|[,.\s-]+$/g, "")
-      .trim();
-    if (!title) return;
-    results.push({ time, title: capitalize(title), priority });
-  });
-
-  return results;
-}
-
-function handleOrganize() {
-  const textarea = document.getElementById("ai-input");
-  const text = textarea.value.trim();
-  if (!text) return;
-
-  const parsed = organizeText(text);
-  if (parsed.length === 0) {
-    state.aiError = "No pude identificar tareas ahí. Intenta separarlas con comas.";
-    render();
-    return;
-  }
-
-  const key = dateKey(state.currentDate);
-  const list = state.tasksByDate[key] ? [...state.tasksByDate[key]] : [];
-  parsed.forEach((t) => {
-    list.push({ id: makeId(), time: t.time, title: t.title, priority: t.priority, done: false, xpAwarded: false });
-  });
-  list.sort((a, b) => a.time.localeCompare(b.time));
-  state.tasksByDate[key] = list;
+function saveApiKey() {
+  const input = document.getElementById("api-key-input");
+  const val = input.value.trim();
+  if (!val) return;
+  localStorage.setItem(STORAGE_API_KEY, val);
+  state.apiKey = val;
+  state.showSettings = false;
   state.aiError = "";
-  saveTasks();
-  scheduleNotifications();
-  textarea.value = "";
+  state.aiNote = "Clave de Anthropic guardada en este teléfono.";
   render();
 }
 
-// ---------- Render ----------
+function clearApiKey() {
+  localStorage.removeItem(STORAGE_API_KEY);
+  state.apiKey = "";
+  state.aiNote = "";
+  render();
+}
+
+function organizeLocally(text) {
+  const clauses = text
+    .split(/[\n;]+|(?:\s*,\s*)|\s+y\s+(?=[A-Za-zÁÉÍÓÚÑáéíóúñ])/i)
+    .map((s) => s.trim())
+    .filter((s) => s.length > 1);
+  const used = new Set();
+  const drafts = [];
+  const priorityRe = /\b(examen|exam|entrega|urgente|importante|proyecto|exposici[oó]n|quiz|parcial|presentaci[oó]n)\b/i;
+
+  function bump(time) {
+    let t = time;
+    let guard = 0;
+    while (used.has(t) && guard < 24) {
+      const [h, m] = t.split(":").map(Number);
+      const next = h * 60 + m + 30;
+      t = `${pad(Math.min(Math.floor(next / 60), 23))}:${pad(next % 60)}`;
+      guard += 1;
+    }
+    used.add(t);
+    return t;
+  }
+
+  function inferTime(clause, index) {
+    const explicit = clause.match(/(?:a\s+las?\s+)?(\d{1,2})(?::(\d{2}))?\s*(a\.?\s*m\.?|p\.?\s*m\.?|am|pm|hrs?|h)?/i);
+    if (explicit) {
+      let h = Number(explicit[1]);
+      const min = Number(explicit[2] ?? "0");
+      const mer = (explicit[3] || "").toLowerCase().replace(/\./g, "").replace(/\s/g, "");
+      if ((mer === "pm" || mer === "pm") && h < 12) h += 12;
+      if ((mer === "am" || mer === "am") && h === 12) h = 0;
+      if (!mer && h >= 1 && h <= 7 && /(tarea|estudio|noche|cena|leer)/i.test(clause)) h += 12;
+      if (h > 23) h = 23;
+      return `${pad(h)}:${pad(min)}`;
+    }
+    if (/madrug|temprano/i.test(clause)) return "07:30";
+    if (/desayuno/i.test(clause)) return "07:30";
+    if (/ejercicio|deporte|gym|correr|entren/i.test(clause)) return "07:00";
+    if (/examen|parcial|quiz/i.test(clause)) return "08:00";
+    if (/clase|escuela|colegio/i.test(clause)) return "08:00";
+    if (/almuerzo|comida|mediod[ií]a/i.test(clause)) return "14:00";
+    if (/tarde/i.test(clause)) return "16:00";
+    if (/tarea|estudio|lectura|ensayo|reporte/i.test(clause)) return "16:00";
+    if (/noche|cena/i.test(clause)) return "20:00";
+    return `${pad(Math.min(9 + index, 21))}:00`;
+  }
+
+  function cleanTitle(clause) {
+    const cleaned = clause
+      .replace(/\b(a\s+las?\s+\d{1,2}(?::\d{2})?\s*(a\.?\s*m\.?|p\.?\s*m\.?|am|pm|hrs?|h)?)\b/gi, "")
+      .replace(/\b(temprano|en la ma[nñ]ana|por la ma[nñ]ana|en la tarde|por la tarde|en la noche|por la noche|hoy|ma[nñ]ana|pasado ma[nñ]ana)\b/gi, "")
+      .replace(/\s{2,}/g, " ")
+      .trim()
+      .replace(/^[\s,.\-:]+|[\s,.\-:]+$/g, "");
+    if (!cleaned) return clause.trim();
+    return cleaned.charAt(0).toUpperCase() + cleaned.slice(1);
+  }
+
+  clauses.forEach((clause, i) => {
+    const title = cleanTitle(clause);
+    if (title.length < 2) return;
+    drafts.push({
+      time: bump(inferTime(clause, i)),
+      title: title.slice(0, 120),
+      priority: priorityRe.test(clause)
+    });
+  });
+  drafts.sort((a, b) => a.time.localeCompare(b.time));
+  return drafts.slice(0, 16);
+}
+
+function parseAiTasks(raw) {
+  const clean = raw.replace(/```json|```/g, "").trim();
+  const start = clean.indexOf("[");
+  const end = clean.lastIndexOf("]");
+  if (start < 0 || end < 0) throw new Error("formato inesperado");
+  const parsed = JSON.parse(clean.slice(start, end + 1));
+  if (!Array.isArray(parsed)) throw new Error("formato inesperado");
+  return parsed.filter((item) => item && item.time && item.title).map((item) => ({
+    time: String(item.time),
+    title: String(item.title).slice(0, 120),
+    priority: !!item.priority
+  }));
+}
+
+async function organizeWithAnthropic(text) {
+  const now = new Date();
+  const systemPrompt = `Eres un asistente que ayuda a un estudiante de bachillerato a organizar su día. A partir de lo que el usuario describe, crea una lista de tareas para el ${displayDate(state.currentDate)}. Responde ÚNICAMENTE con un arreglo JSON válido, sin texto adicional ni marcado de código. Cada tarea debe tener exactamente este formato: {"time":"HH:MM","title":"texto breve","priority":true o false}. Usa formato de 24 horas, ordena las tareas cronológicamente y evita traslapes. Si el usuario no da una hora, asigna una hora razonable según el contexto (ejercicio en la mañana o noche, tareas escolares en la tarde, exámenes temprano). Marca priority en true solo para lo más urgente, como exámenes o entregas. Hora actual de referencia: ${pad(now.getHours())}:${pad(now.getMinutes())}. Máximo 12 tareas.`;
+
+  const response = await fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      "x-api-key": state.apiKey,
+      "anthropic-version": "2023-06-01",
+      "anthropic-dangerous-direct-browser-access": "true"
+    },
+    body: JSON.stringify({
+      model: MODEL,
+      max_tokens: 1500,
+      system: systemPrompt,
+      messages: [{ role: "user", content: text }]
+    })
+  });
+
+  const data = await response.json();
+  if (data.error) throw new Error(data.error.message || "Error de la API");
+  const textOut = (data.content || []).map((b) => b.text || "").join("\n");
+  const parsed = parseAiTasks(textOut);
+  if (!parsed.length) throw new Error("formato inesperado");
+  return parsed;
+}
+
+function applyDrafts(parsed) {
+  const key = dateKey(state.currentDate);
+  const list = state.tasksByDate[key] ? [...state.tasksByDate[key]] : [];
+  parsed.forEach((item) => {
+    list.push({ id: makeId(), time: item.time, title: item.title, priority: !!item.priority, done: false, xpAwarded: false });
+  });
+  list.sort((a, b) => a.time.localeCompare(b.time));
+  state.tasksByDate[key] = list;
+  saveTasks();
+  scheduleNotifications();
+  state.aiDraft = "";
+}
+
+async function handleOrganize() {
+  const textarea = document.getElementById("ai-input");
+  const text = (textarea ? textarea.value : state.aiDraft).trim();
+  if (!text || state.aiLoading) return;
+  state.aiDraft = text;
+  state.aiLoading = true;
+  state.aiError = "";
+  state.aiNote = "";
+  render();
+
+  try {
+    let parsed = null;
+    let source = "local";
+    if (state.apiKey && navigator.onLine) {
+      try {
+        parsed = await organizeWithAnthropic(text);
+        source = "anthropic";
+      } catch (err) {
+        parsed = null;
+      }
+    }
+    if (!parsed || !parsed.length) {
+      parsed = organizeLocally(text);
+      source = "local";
+    }
+    if (!parsed.length) {
+      state.aiError = "No pude armar tareas con eso. Prueba con más detalle.";
+      return;
+    }
+    applyDrafts(parsed);
+    state.aiNote = source === "anthropic"
+      ? "Horario armado con Claude."
+      : (state.apiKey && !navigator.onLine
+        ? "Sin internet: usé el organizador local."
+        : "Horario armado en el celular (sin gastar API).");
+  } catch (e) {
+    state.aiError = "No se pudo organizar tu día. Intenta de nuevo.";
+  } finally {
+    state.aiLoading = false;
+    render();
+  }
+}
+
+function exportData() {
+  const blob = new Blob([JSON.stringify({ tasksByDate: state.tasksByDate, progress: state.progress }, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "mi-agenda.json";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function importData(input) {
+  const file = input.files && input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const parsed = JSON.parse(String(reader.result));
+      if (!parsed.tasksByDate) throw new Error("bad");
+      state.tasksByDate = parsed.tasksByDate;
+      if (parsed.progress) state.progress = { ...state.progress, ...parsed.progress };
+      saveTasks();
+      saveProgress();
+      scheduleNotifications();
+      render();
+    } catch (e) {
+      state.aiError = "Ese archivo no parece una copia de la agenda.";
+      render();
+    }
+  };
+  reader.readAsText(file);
+  input.value = "";
+}
+
+async function installApp() {
+  if (!state.installPrompt) return;
+  state.installPrompt.prompt();
+  await state.installPrompt.userChoice;
+  state.installPrompt = null;
+  render();
+}
+
 function renderTaskRow(t) {
   return `
     <div class="task-row ${t.done ? "done" : ""}">
@@ -341,9 +477,24 @@ function renderAddForm() {
   `;
 }
 
+function renderSettings() {
+  return `
+    <div class="settings-panel">
+      <label class="settings-label">Clave de API de Anthropic (opcional)</label>
+      <p class="settings-status">${state.apiKey ? "Clave guardada en este navegador." : "Sin clave: el organizador local funciona igual, incluso sin internet."}</p>
+      <input type="password" id="api-key-input" placeholder="sk-ant-..." autocomplete="off" />
+      <div class="add-form-actions">
+        ${state.apiKey ? '<button type="button" class="btn-ghost" onclick="clearApiKey()">Borrar clave</button>' : "<span></span>"}
+        <button type="button" class="btn-primary small" onclick="saveApiKey()">Guardar</button>
+      </div>
+      <p class="settings-note">Se guarda solo en este teléfono. Si hay datos móviles o wifi, usa Claude. Si no hay internet, arma el horario en el celular.</p>
+    </div>
+  `;
+}
+
 function renderNotifFooter() {
   if (state.notifPermission === "unsupported") return `<p class="muted">Tu navegador no soporta notificaciones.</p>`;
-  if (state.notifPermission === "granted") return `<p class="notif-status">${ICONS.bell} Recordatorios activados mientras esta pestaña esté abierta.</p>`;
+  if (state.notifPermission === "granted") return `<p class="notif-status">${ICONS.bell} Recordatorios mientras esta pestaña esté abierta.</p>`;
   if (state.notifPermission === "denied") return `<p class="muted">${ICONS.bellOff} Notificaciones bloqueadas. Actívalas desde los ajustes del navegador.</p>`;
   return `<button class="btn-ghost" onclick="requestNotifications()">${ICONS.bell} Activar recordatorios</button>`;
 }
@@ -393,17 +544,21 @@ function renderBadges() {
 function render() {
   const root = document.getElementById("app");
   const currentKey = dateKey(state.currentDate);
-  const todayKey = dateKey(new Date());
+  const today = dateKey(new Date());
   const tasks = (state.tasksByDate[currentKey] || []).slice().sort((a, b) => a.time.localeCompare(b.time));
+  const sub = state.apiKey
+    ? (state.online ? "Con clave de Anthropic: usa Claude si hay internet." : "Sin internet: el organizador local sigue funcionando.")
+    : "Escribe tus pendientes. Funciona con datos móviles, wifi o sin internet.";
 
   root.innerHTML = `
     <div class="agenda-shell">
       ${state.justUnlocked && state.justUnlocked.length ? renderCelebration() : ""}
+      ${!state.online ? `<p class="offline-pill">Sin internet — puedes ver y marcar tareas. Organizar usa el modo local.</p>` : ""}
       <header class="header">
         <button class="nav-btn" onclick="goPrevDay()" aria-label="Día anterior">${ICONS.chevronLeft}</button>
         <div class="date-block">
           <h1>${displayDate(state.currentDate)}</h1>
-          ${currentKey === todayKey ? '<span class="today-badge">Hoy</span>' : ""}
+          ${currentKey === today ? '<span class="today-badge">Hoy</span>' : ""}
         </div>
         <button class="nav-btn" onclick="goNextDay()" aria-label="Día siguiente">${ICONS.chevronRight}</button>
       </header>
@@ -414,11 +569,18 @@ function render() {
         <div class="ai-card-head">
           ${ICONS.sparkles}
           <h2>Organiza mi día</h2>
+          <button class="settings-btn" onclick="toggleSettings()" aria-label="Ajustes">${ICONS.gear}</button>
         </div>
-        <p class="ai-card-sub">Separa tus pendientes con comas y les asignamos un horario automático.</p>
-        <textarea id="ai-input" rows="3" placeholder="Ej. examen de mate a las 8, ejercicio a las 6, tarea de historia en la tarde"></textarea>
+        <p class="ai-card-sub">${sub}</p>
+        ${state.showSettings ? renderSettings() : ""}
+        <textarea id="ai-input" rows="3" placeholder="Ej. examen de mate mañana temprano, ejercicio a las 6, terminar tarea de historia..." oninput="state.aiDraft=this.value">${escapeHtml(state.aiDraft)}</textarea>
         ${state.aiError ? `<p class="ai-error">${escapeHtml(state.aiError)}</p>` : ""}
-        <button class="btn-primary" onclick="handleOrganize()">Organizar mi día</button>
+        ${state.aiNote ? `<p class="ai-ok">${escapeHtml(state.aiNote)}</p>` : ""}
+        <button class="btn-primary" onclick="handleOrganize()" ${state.aiLoading ? "disabled" : ""}>
+          ${state.aiLoading
+            ? `<span class="thinking">Organizando<span class="dots"><span></span><span></span><span></span></span></span>`
+            : "Organizar mi día"}
+        </button>
       </section>
 
       <section class="paper">
@@ -426,7 +588,7 @@ function render() {
         <div class="paper-content">
           ${tasks.length === 0
             ? `<div class="empty-state">
-                <p>Nada agendado ${currentKey === todayKey ? "para hoy" : "para este día"} todavía.</p>
+                <p>Nada agendado ${currentKey === today ? "para hoy" : "para este día"} todavía.</p>
                 <button class="btn-ghost" onclick="openAddForm()">${ICONS.plus} Agregar tarea</button>
               </div>`
             : `${tasks.map(renderTaskRow).join("")}
@@ -438,11 +600,15 @@ function render() {
       ${renderBadges()}
 
       <footer class="notif-footer">${renderNotifFooter()}</footer>
+      <div class="data-actions">
+        <button class="btn-ghost" onclick="exportData()">${ICONS.download} Exportar</button>
+        <label class="btn-ghost file-label">Importar<input type="file" accept="application/json" onchange="importData(this)" /></label>
+      </div>
+      ${state.installPrompt ? `<button class="btn-ghost install-btn" onclick="installApp()">Instalar en el celular</button>` : ""}
     </div>
   `;
 }
 
-// ---------- Inicio ----------
 function init() {
   try {
     const raw = localStorage.getItem(STORAGE_TASKS_KEY);
@@ -453,9 +619,25 @@ function init() {
   try {
     const rawProgress = localStorage.getItem(STORAGE_PROGRESS_KEY);
     if (rawProgress) state.progress = { ...state.progress, ...JSON.parse(rawProgress) };
+  } catch (e) { /* default */ }
+  try {
+    state.apiKey = localStorage.getItem(STORAGE_API_KEY) || "";
   } catch (e) {
-    // usar progreso por defecto
+    state.apiKey = "";
   }
+
+  window.addEventListener("online", () => { state.online = true; render(); });
+  window.addEventListener("offline", () => { state.online = false; render(); });
+  window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    state.installPrompt = e;
+    render();
+  });
+
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("./sw.js").catch(() => {});
+  }
+
   scheduleNotifications();
   render();
 }

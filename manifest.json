@@ -1,0 +1,20 @@
+{
+  "name": "Mi Agenda",
+  "short_name": "Agenda",
+  "description": "Agenda diaria con tareas, XP e insignias. Funciona con datos móviles y también sin internet.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#12162B",
+  "theme_color": "#12162B",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
